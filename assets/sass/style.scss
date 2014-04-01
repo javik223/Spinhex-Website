@@ -1,0 +1,273 @@
+@import "compass";
+@import "compass/reset";
+@import "bourbon";
+@import "neat";
+@import "settings";
+
+$white: #fff;
+$black: #000;
+$blue: #1393b9;
+$orange-light: #e7972a;
+$orange: #e45c1a;
+/**body {
+	background-color: #000;
+	color: $white;
+}**/
+
+body {
+	font-family: Avenir, Helvetica;
+	background: image-url('bg.jpg') fixed;
+	color: $white;
+	line-height: 150%;
+}
+
+h1 {
+	font-size: em(50);
+	line-height: em(30);
+}
+
+h2, h3 {
+	font-size: em(30);
+	line-height: em(20);
+	padding: em(20) 0;
+	color: $orange-light;
+	font-weight: 600;
+}
+h3 {
+	font-size: em(20);
+	color: $white;
+	line-height: 150%;
+}
+.container {
+	@include outer-container;
+}
+#header {
+	@include fill-parent;
+}
+.nav {
+	margin-bottom: em(40);
+	float: left;
+
+	li {
+		float: left;
+		display: inline;
+		padding-right: em(10);
+
+		a {
+			text-decoration: none;
+			font-weight: bold;
+			color: $white;
+
+			&:hover {
+				color: $orange-light;
+			}
+		}
+	}
+
+	#header & {
+		font-size: em(22);
+		text-transform: uppercase;
+		padding-top: em(40);
+		padding-left: em(20);
+	}
+}
+.alternate-logo {
+	float: right;
+}
+
+.header-logo {
+	@include replace-text-with-dimensions('spinhex-dj-championship-logo.png');
+	float: left;
+	margin-top: 30px;
+}
+.sub-logo {
+	float: right;
+}
+.full-width {
+	@include fill-parent;
+	float: left;
+}
+.hero {
+	float: left;
+	width: 100%;
+	background-color: green;
+
+	img {
+		max-width: 100%;
+		float: left;
+	}
+}
+.featured {
+	text-align: centre;
+
+	h2 {
+		text-align: center;
+	}
+}
+.featured-videos {
+	position: relative;
+
+	.featured-videos-controls {
+		width: 100%;
+		position: absolute;
+		height: 50%;
+		font-size: em(40);
+
+		.icon-arrow-left, .icon-arrow-right {
+			position: absolute;
+			top: 50%;
+			cursor: pointer;
+			@include transition ( all 0.3s ease-in-out );
+
+			&:hover {
+				color: $orange-light;
+				@include transform( translate3D(-20%, 0, 0) );
+			}
+		}
+
+		.icon-arrow-right {
+			right: 0;
+			
+			&:hover {
+				@include transform( translate3D(20%, 0, 0) );
+			}
+		}
+	}
+}
+.featured-video {
+	float: left;
+	text-align: center;
+	@include span-columns( 12 );
+
+	.clip {
+		@include span-columns( 10 of 12 );
+		@include shift( 1 );
+		height: em(450);
+		text-align: center;
+		background-color: $black;
+		float: none;
+		margin-bottom: em(20);
+		border: 10px solid $white;
+		text-align: center;
+
+		iframe {
+			max-width: 100%;
+			height: em(430);
+		}
+	}
+}
+.featured-photos {
+	.featured-photo {
+		@include span-columns( 4 of 12 );
+		height: 300px;
+		background-color: gray;
+		@include reset-display;
+		@include pad(0);
+
+
+		img {
+			max-width: 100%;
+		}
+	}
+}
+.tweets {
+	padding: em(40);
+	text-align: center;
+
+	a {
+		color: $blue;
+		text-decoration: none;
+
+		&:hover {
+			color: $orange-light;
+		}
+	}
+
+	.tweets-twitter-logo {
+		padding: em(10) 0;
+		color: $blue;
+		@include inline-block;
+		font-size: em(40);
+	}
+}
+.btn-container {
+	@include span-columns( 12 );
+	text-align: center;
+}
+.btn {
+	//border: 2px solid $white;
+	text-align: center;
+	padding: em(15) em(20);
+	text-decoration: none;
+	color: $black;
+	margin: em(40) auto;
+	@include inline-block;
+	@include border-radius( em(4) );
+	color: $white;
+	@include transition ( all 0.3s ease-in );
+	background-color: $orange;
+	font-size: em(20);
+
+	&:hover {
+		@include transform( scale(1.2) );
+		background-color: darken($orange, 10);
+	}
+}
+#footer {
+	padding: em(40) 0;
+
+	.nav {
+		float: right;
+		width: auto;
+
+		li:last-child {
+			padding-right: 0;
+		}
+		a {
+			color: rgba(255, 255, 255, 0.4);
+			font-weight: normal;
+		}
+	}
+
+	.copyright {
+		float: left;
+		@include span-columns( 5 of 12 );
+
+		img {
+			margin-right: em(20);
+		}
+
+		span {
+			display: block;
+			padding: em(20) 0 ;
+			font-size: em(13);
+			color: rgba(255, 255, 255, 0.5);
+		}
+	}
+
+	.social {
+		font-size: em(36);
+		text-align: middle;
+		@include span-columns( 3 of 12 );
+		text-align: center;
+
+		a {
+			color: $white;
+			text-decoration: none;
+			margin-right: em(10);
+			@include transition ( all 0.3s ease-in-out );
+			padding-bottom: em(20);
+
+			&:hover {
+				color: $blue;
+			}
+		}
+	}
+}
+.dark-container {
+	background-color: rgba(0, 0, 0, 0.4);
+}
+.container-with-padding {
+	padding: em(70);
+	margin-bottom: em(40);
+}
