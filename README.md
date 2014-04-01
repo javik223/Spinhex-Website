@@ -1,1 +1,1 @@
-New Spinhex DJ Championship Website Project
+Here is the detailes of the new project
